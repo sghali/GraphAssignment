@@ -28,7 +28,7 @@ class Vertex {
             this.isVertexVisisted = false;
     }
 }
- 
+
 
 public class Graph {
  
@@ -83,8 +83,10 @@ public class Graph {
         return -1;
     }   
      
-    // recursive dfs
-    private void dfs(int v,int pos) {
+    /*
+     * 
+     */
+    private void printGraph(int v,int pos) {
         for (Neighbor nbr=adjLists[v].adjList; nbr != null; nbr=nbr.next) {
         	if(!nbr.isVisisted){
         		for(int i=0;i<=pos;i++){
@@ -94,20 +96,20 @@ public class Graph {
             	adjLists[nbr.vertexNum].isVertexVisisted=true;
             	if(adjLists[nbr.vertexNum].adjList!=null){
             		 nbr.isVisisted = true;
-                	 dfs(nbr.vertexNum,pos+1);
+            		 printGraph(nbr.vertexNum,pos+1);
             	}
             	 nbr.isVisisted = true;
         	}
             }
     }
      
-    public void dfs() {
+    public void traverseGraph() {
         int pos =0;
         for (int v=0; v < adjLists.length; v++) {
             	if(adjLists[v].adjList!=null && adjLists[v].isVertexVisisted ==false ){
             		System.out.println(adjLists[v].name);
             	}
-                dfs(v,pos);
+            	printGraph(v,pos);
         }
     }
      

@@ -51,7 +51,7 @@ public class GraphTest {
 	 */
 	public void DisplayGraphDependanciesIndentedPattern(String file) {
 		graph = new Graph(file,true);
-		graph.dfs();
+		graph.traverseGraph();
 		Assert.assertTrue(true);
 	}
 	
