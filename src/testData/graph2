@@ -1,7 +1,5 @@
-A->B
-A->C
-A->E
 B->C
 B->D
 D->E
-A->D
+D->F
+F->G

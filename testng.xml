@@ -6,15 +6,22 @@
     <classes>
       <class name="test.GraphTest">
       <methods>
-        <parameter name="file"  value="/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph3"/>
-         <parameter name="file2"  value="/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph2"/>
+        <parameter name="file"  value="./src/testData/graph3"/>
+         <parameter name="file2"  value="./src/testData/graph2"/>
+         <parameter name="file3"  value="./src/testData/invalidGraph"/>
         <parameter name="source"  value="A"/>
-         <parameter name="destination"  value="Z"/>
-         <parameter name="expectedCount"  value="0"/>
+         <parameter name="destination"  value="J"/>
+         <parameter name="expectedCount"  value="2"/>
+         <parameter name="inValidSource"  value="A"/>
+         <parameter name="inValidDestination"  value="Z"/>
+         <parameter name="negativeExpectedCount"  value="0"/>
         <include name="IsGraphHierarchyCorrectForInsertionOrder" />
-        <include name="IsGraphHierarchyFalseForNonInsertionOrgerGraph" />
+        <include name="IsGraphHierarchyFalseForNonInsertionOrderGraph" />
         <include name="DisplayGraphDependanciesIndentedPattern" />
         <include name="ValidatePossiblePaths" />
+         <include name="ValidatePossiblePathsForNonExistNode" />
+         <include name="DisplayGraphDependancies" />
+         <include name="DisplayGraphDependanciesInvalid" />
       </methods>
         </class>
     </classes>

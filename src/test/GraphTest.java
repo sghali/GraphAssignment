@@ -1,67 +1,121 @@
 package test;
 
 
-import java.io.FileNotFoundException;
-
 import main.Graph;
 
 import org.testng.Assert;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
  
 
 public class GraphTest {
 	
-	String FILE_URL ="/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph2";
+	String FILE_URL ="./src/testData/graph3";
 	Graph graph;
 
-	@Parameters({"url"})
-	@BeforeSuite
-	public void GenerateGraph(){
-		graph = new Graph(FILE_URL,true);
-		//graph.print();
-	}
-	
-	@Parameters({ "file" })
-	@Test
 	/*
 	 * Positive Case - As in before test graph is build based on insertion order below test will make sure dependencies are right hierarchy
 	 */
-	public void IsGraphHierarchyCorrectForInsertionOrder(String file) {
-		graph = new Graph(file,true);
-		Assert.assertTrue(graph.confirmGraphHierarchy(file, "->"));
+	@Test
+	public void IsGraphHierarchyCorrectForInsertionOrder() {
+		try {
+			graph = new Graph(FILE_URL,true);
+			Assert.assertTrue(graph.confirmGraphHierarchy(FILE_URL, "->"));
+		} catch (Exception e) {
+			
+		}
+		
 	}
 	
-	@Parameters({ "file" })
-	@Test
 	/*
 	 * Negative Case - As graph is build not based on insertion order , below test should fail to make sure dependencies are not in right hierarchy
 	 */
-	public void IsGraphHierarchyFalseForNonInsertionOrgerGraph(String file) {
-		graph = new Graph(file,false);
-		Assert.assertFalse( graph.confirmGraphHierarchy(FILE_URL, "->"));
+	@Test
+	public void IsGraphHierarchyFalseForNonInsertionOrderGraph() {
+		try {
+			graph = new Graph(FILE_URL,false);
+			Assert.assertFalse( graph.confirmGraphHierarchy(FILE_URL, "->"));
+		} catch (Exception e) {
+			System.out.println("Excpetion in building graph:"+e.getMessage());
+		}
+		
 	}
 	
-	@Parameters({ "file" })
-	@Test
 	/*
 	 * Display the o/p with required indentation in Hierarchical fashion
 	 */
-	public void DisplayGraphDependanciesIndentedPattern(String file) {
-		graph = new Graph(file,true);
-		graph.traverseGraph();
-		Assert.assertTrue(true);
+	@Test
+	public void DisplayGraphDependanciesIndentedPattern() {
+		System.out.println("########Started Traversing######");
+		try {
+			graph = new Graph(FILE_URL,true);
+			Assert.assertTrue(graph.traverseGraph());
+			System.out.println("########Completed######");
+		} catch (Exception e) {
+			System.out.println("Excpetion in building graph:"+e.getMessage());
+		}
+		
 	}
 	
-	@Parameters({ "source","destination","expectedCount","file2"})
+	/*
+	 * Display the o/p with required indentation in Hierarchical fashion
+	 */
+	@Parameters({"file2"})
 	@Test
-	public void ValidatePossiblePaths(String source,String destination,int expectedCount,String file) {
-		graph = new Graph(file,true);
-		int actual = graph.countPossiblePaths("A", "Z");
-		System.out.println("the paths between A & C "+actual);
-		Assert.assertEquals(actual, expectedCount);
+	public void DisplayGraphDependancies(String file2) {
+		System.out.println("########Started Traversing######");
+		try {
+			graph = new Graph(file2,true);
+			Assert.assertTrue(graph.traverseGraph());
+			System.out.println("########Completed######");
+		} catch (Exception e) {
+			System.out.println("Excpetion in building graph:"+e.getMessage());
+		}
+		
+	}
+	
+	/*
+	 * Display the o/p When graph is empty or only node
+	 */
+	@Parameters({"file3"})
+	@Test
+	public void DisplayGraphDependanciesInvalid(String file3) {
+		try{
+		graph = new Graph(file3,true);
+		}catch(Exception e){
+			Assert.assertTrue(true, "Unable to build the graph as file is invalid and nothing to Process");
+		}
+	}
+	
+	@Parameters({ "source","destination","expectedCount"})
+	@Test
+	public void ValidatePossiblePaths(String source,String destination,int expectedCount) {
+		try {
+			graph = new Graph(FILE_URL,true);
+			int actual = graph.countPossiblePaths(source,destination);
+			System.out.println("the paths between"+source+" "+destination +" is "+actual);
+			Assert.assertEquals(actual, expectedCount);
+		} catch (Exception e) {
+			System.out.println("Excpetion in building graph:"+e.getMessage());
+		}
+		
+	}
+	
+	/*
+	 * Test to verify the possible paths between non existent nodes -output should be 0
+	 */
+	@Parameters({ "inValidSource","inValidDestination","negativeExpectedCount"})
+	@Test
+	public void ValidatePossiblePathsForNonExistNode(String inValidSource,String inValidDestination,int negativeExpectedCount) {
+		try {
+			graph = new Graph(FILE_URL,true);
+			int actual = graph.countPossiblePaths(inValidSource,inValidDestination);
+			System.out.println("the paths between"+inValidSource+" "+inValidDestination +" is "+actual);
+			Assert.assertEquals(actual, negativeExpectedCount);
+		} catch (Exception e) {
+			System.out.println("Excpetion in building graph:"+e.getMessage());
+		}
+		
 	}
 	
 	

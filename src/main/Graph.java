@@ -2,9 +2,8 @@ package main;
 
  
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
+import java.util.Stack;
  
 class Neighbor {
     public int vertexNum;
@@ -33,18 +32,20 @@ class Vertex {
 public class Graph {
  
     Vertex[] adjLists;
-     
-    public Graph(String file,boolean insertionOrder)  {
+    final int  ALPHABETS =26;
+    /*
+     * @Constructor - Based on file & insertion order will build the graph along with dependencies
+     */
+    public Graph(String file,boolean insertionOrder) throws Exception  {
        try{
         Scanner sc = new Scanner(new File(file));
-        adjLists = new Vertex[26]; 
+        adjLists = new Vertex[ALPHABETS]; 
         // read vertices
         char alphabet = 'A';
         for (int v=0; v < adjLists.length; v++) {
             adjLists[v] = new Vertex(Character.toString(alphabet), null,false);
             alphabet++;
         }
- 
         // read edges
         while (sc.hasNext()) {
             // read vertex names and translate to vertex numbers  
@@ -69,11 +70,13 @@ public class Graph {
            
         }
        }catch(Exception e){
-    	   System.out.println("Exception in Building Graph:");
+    	   throw e;
        }
     }
  
-     
+     /*
+      * @method to fetch index based on String
+      */
     int indexForName(String name) {
         for (int v=0; v < adjLists.length; v++) {
             if (adjLists[v].name.equals(name)) {
@@ -84,7 +87,7 @@ public class Graph {
     }   
      
     /*
-     * 
+     *@Method to Print the graph recursively maintaining hierarchy & indentation 
      */
     private void printGraph(int v,int pos) {
         for (Neighbor nbr=adjLists[v].adjList; nbr != null; nbr=nbr.next) {
@@ -102,18 +105,28 @@ public class Graph {
         	}
             }
     }
-     
-    public void traverseGraph() {
+    
+     /*
+      * @Method to TraverseGraph & Print
+      */
+    public boolean traverseGraph() {
         int pos =0;
-        for (int v=0; v < adjLists.length; v++) {
-            	if(adjLists[v].adjList!=null && adjLists[v].isVertexVisisted ==false ){
-            		System.out.println(adjLists[v].name);
-            	}
-            	printGraph(v,pos);
-        }
+        if(adjLists.length==0){
+        	return false;
+        }else{
+	        for (int v=0; v < adjLists.length; v++) {
+	            	if(adjLists[v].adjList!=null && adjLists[v].isVertexVisisted ==false ){
+	            		System.out.println(adjLists[v].name);
+	            	}
+	            	printGraph(v,pos);
+	        }
+       }
+		return true;
     }
      
-     
+     /*
+      * @Method to Print the graph
+      */
     public void print() {
         System.out.println();
         for (int v=0; v < adjLists.length; v++) {
@@ -125,7 +138,9 @@ public class Graph {
         }
     }
    
-    
+    /*
+     * @Method to confirm the graph hierarchy
+     */
    public boolean confirmGraphHierarchy(String file,String delimiter){
     	try{
     	 Scanner ch = new Scanner(new File(file));
@@ -154,26 +169,34 @@ public class Graph {
     		 }	 	
     	 }
     	}catch(Exception e){
-    		System.out.println("Error in Confirming the graph input hirerachy");
     		return false;
     	}
     	return true;
     }
    
+   /*
+    * @Method to search the paths between source & destination
+    */
    private int searchPaths(int v1,int v2) {
 	   int totalPaths=0;
 	   if(adjLists[v1].name.equals(adjLists[v2].name)){
 		   totalPaths= totalPaths+1;
 	   }
 	  for (Neighbor nbr=adjLists[v1].adjList; nbr != null;nbr=nbr.next)
-		  if(adjLists[nbr.vertexNum].name.equals(adjLists[v2].name)){
+		  if(nbr.isVisisted==false){
+	        if(adjLists[nbr.vertexNum].name.equals(adjLists[v2].name)){
 			  totalPaths= totalPaths+1; 
-          }else{
-        	  totalPaths= totalPaths + searchPaths(nbr.vertexNum,v2);  
-          }
+             }else{
+            	 nbr.isVisisted = true;
+            	 totalPaths= totalPaths + searchPaths(nbr.vertexNum,v2);
+             }
+		  }
       return totalPaths;
    }
     
+   /*
+    * @Method to count all possible Paths between source & destination
+    */
    public int countPossiblePaths(String source, String destination) {
 	   int v1 = indexForName(source);
        int v2 = indexForName(destination);

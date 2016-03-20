@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]">
+  <parameter name="source" value="A"/>
+  <parameter name="file2" value="./src/testData/graph2"/>
+  <parameter name="expectedCount" value="2"/>
+  <parameter name="inValidDestination" value="Z"/>
+  <parameter name="inValidSource" value="A"/>
+  <parameter name="negativeExpectedCount" value="0"/>
+  <parameter name="destination" value="J"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="GraphTest">
+      <class name="test.GraphTest">
         <methods>
-          <include name="GenerateGraph"/>
+          <include name="DisplayGraphDependanciesIndentedPattern"/>
+          <include name="ValidatePossiblePathsForNonExistNode" invocation-numbers="0"/>
+          <include name="ValidatePossiblePaths" invocation-numbers="0"/>
           <include name="IsGraphHierarchyCorrectForInsertionOrder"/>
         </methods>
-      </class> <!-- GraphTest -->
+      </class> <!-- test.GraphTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
