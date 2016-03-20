@@ -36,9 +36,14 @@ public class Graph {
     /*
      * @Constructor - Based on file & insertion order will build the graph along with dependencies
      */
-    public Graph(String file,boolean insertionOrder) throws Exception  {
+    public Graph(String file,boolean insertionOrder,String delimiter) throws Exception  {
        try{
         Scanner sc = new Scanner(new File(file));
+        String graphType = sc.next();
+        boolean undirected=true;
+        if (graphType.equals("directed")) {
+            undirected=false;
+        }
         adjLists = new Vertex[ALPHABETS]; 
         // read vertices
         char alphabet = 'A';
@@ -49,7 +54,7 @@ public class Graph {
         // read edges
         while (sc.hasNext()) {
             // read vertex names and translate to vertex numbers  
-            String[]  input = sc.next().split("->");
+            String[]  input = sc.next().split(delimiter);
             int v1 = indexForName(input[0]);
             int v2 = indexForName(input[1]);
 		    if(insertionOrder){
@@ -65,6 +70,8 @@ public class Graph {
 		          }
          }else{
         	 adjLists[v1].adjList = new Neighbor(v2,adjLists[v1].adjList,false);
+         }if (undirected) {
+             adjLists[v2].adjList = new Neighbor(v1,adjLists[v2].adjList,false);
          }
           
            
@@ -93,9 +100,9 @@ public class Graph {
         for (Neighbor nbr=adjLists[v].adjList; nbr != null; nbr=nbr.next) {
         	if(!nbr.isVisisted){
         		for(int i=0;i<=pos;i++){
-            		System.out.print("|_");
+            		System.out.print("| ");
             	}
-            	System.out.println(""+adjLists[nbr.vertexNum].name);
+            	System.out.println("_"+adjLists[nbr.vertexNum].name);
             	adjLists[nbr.vertexNum].isVertexVisisted=true;
             	if(adjLists[nbr.vertexNum].adjList!=null){
             		 nbr.isVisisted = true;
@@ -116,6 +123,7 @@ public class Graph {
         }else{
 	        for (int v=0; v < adjLists.length; v++) {
 	            	if(adjLists[v].adjList!=null && adjLists[v].isVertexVisisted ==false ){
+	            		System.out.println("STARTING-->");
 	            		System.out.println(adjLists[v].name);
 	            	}
 	            	printGraph(v,pos);
@@ -144,6 +152,7 @@ public class Graph {
    public boolean confirmGraphHierarchy(String file,String delimiter){
     	try{
     	 Scanner ch = new Scanner(new File(file));
+    	 String graphType = ch.next();
     	 while(ch.hasNext()){
     		 String[] in = ch.next().split(delimiter);
     		 String source = in[0];

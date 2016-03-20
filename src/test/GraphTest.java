@@ -19,7 +19,7 @@ public class GraphTest {
 	@Test
 	public void IsGraphHierarchyCorrectForInsertionOrder() {
 		try {
-			graph = new Graph(FILE_URL,true);
+			graph = new Graph(FILE_URL,true,"->");
 			Assert.assertTrue(graph.confirmGraphHierarchy(FILE_URL, "->"));
 		} catch (Exception e) {
 			
@@ -33,7 +33,7 @@ public class GraphTest {
 	@Test
 	public void IsGraphHierarchyFalseForNonInsertionOrderGraph() {
 		try {
-			graph = new Graph(FILE_URL,false);
+			graph = new Graph(FILE_URL,false,"->");
 			Assert.assertFalse( graph.confirmGraphHierarchy(FILE_URL, "->"));
 		} catch (Exception e) {
 			System.out.println("Excpetion in building graph:"+e.getMessage());
@@ -48,7 +48,7 @@ public class GraphTest {
 	public void DisplayGraphDependanciesIndentedPattern() {
 		System.out.println("########Started Traversing######");
 		try {
-			graph = new Graph(FILE_URL,true);
+			graph = new Graph(FILE_URL,true,"->");
 			Assert.assertTrue(graph.traverseGraph());
 			System.out.println("########Completed######");
 		} catch (Exception e) {
@@ -58,14 +58,14 @@ public class GraphTest {
 	}
 	
 	/*
-	 * Display the o/p with required indentation in Hierarchical fashion
+	 * Display the o/p with required indentation in Hierarchical fashion for undirected graph
 	 */
 	@Parameters({"file2"})
 	@Test
-	public void DisplayGraphDependancies(String file2) {
-		System.out.println("########Started Traversing######");
+	public void DisplayGraphDependanciesUndirectedPath(String file2) {
+		System.out.println("########Started Traversing Undriected Graph######");
 		try {
-			graph = new Graph(file2,true);
+			graph = new Graph(file2,true,"-");
 			Assert.assertTrue(graph.traverseGraph());
 			System.out.println("########Completed######");
 		} catch (Exception e) {
@@ -81,7 +81,7 @@ public class GraphTest {
 	@Test
 	public void DisplayGraphDependanciesInvalid(String file3) {
 		try{
-		graph = new Graph(file3,true);
+		graph = new Graph(file3,true,"->");
 		}catch(Exception e){
 			Assert.assertTrue(true, "Unable to build the graph as file is invalid and nothing to Process");
 		}
@@ -91,7 +91,7 @@ public class GraphTest {
 	@Test
 	public void ValidatePossiblePaths(String source,String destination,int expectedCount) {
 		try {
-			graph = new Graph(FILE_URL,true);
+			graph = new Graph(FILE_URL,true,"->");
 			int actual = graph.countPossiblePaths(source,destination);
 			System.out.println("the paths between"+source+" "+destination +" is "+actual);
 			Assert.assertEquals(actual, expectedCount);
@@ -108,7 +108,7 @@ public class GraphTest {
 	@Test
 	public void ValidatePossiblePathsForNonExistNode(String inValidSource,String inValidDestination,int negativeExpectedCount) {
 		try {
-			graph = new Graph(FILE_URL,true);
+			graph = new Graph(FILE_URL,true,"->");
 			int actual = graph.countPossiblePaths(inValidSource,inValidDestination);
 			System.out.println("the paths between"+inValidSource+" "+inValidDestination +" is "+actual);
 			Assert.assertEquals(actual, negativeExpectedCount);

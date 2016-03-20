@@ -4,16 +4,17 @@
   <test name="GraphTest(failed)">
     <classes>
       <class name="test.GraphTest">
-        <parameter name="file2" value="./src/testData/graph2"/>
+        <parameter name="file2" value="./src/testData/sampleGraph"/>
         <parameter name="source" value="A"/>
-        <parameter name="file" value="./src/testData/graph3"/>
+        <parameter name="file3" value="./src/testData/invalidGraph"/>
+        <parameter name="file" value="./src/testData/validInputGraph"/>
         <parameter name="expectedCount" value="2"/>
         <parameter name="inValidDestination" value="Z"/>
         <parameter name="inValidSource" value="A"/>
         <parameter name="destination" value="J"/>
         <parameter name="negativeExpectedCount" value="0"/>
         <methods>
-          <include name="ValidatePossiblePaths" invocation-numbers="0"/>
+          <include name="IsGraphHierarchyCorrectForInsertionOrder"/>
         </methods>
       </class> <!-- test.GraphTest -->
     </classes>
