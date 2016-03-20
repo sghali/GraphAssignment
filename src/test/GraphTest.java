@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class GraphTest {
 	
-	String FILE_URL ="./src/testData/graph3";
+	String FILE_URL ="./src/testData/validInputGraph";
 	Graph graph;
 
 	/*

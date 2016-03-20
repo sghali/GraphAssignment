@@ -2,24 +2,46 @@
 <testng-results skipped="0" failed="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="TestAutomation" duration-ms="67" started-at="2016-03-20T16:13:24Z" finished-at="2016-03-20T16:13:24Z">
+  <suite name="Default suite" duration-ms="63" started-at="2016-03-20T16:35:10Z" finished-at="2016-03-20T16:35:10Z">
     <groups>
     </groups>
-    <test name="GraphTest" duration-ms="67" started-at="2016-03-20T16:13:24Z" finished-at="2016-03-20T16:13:24Z">
+    <test name="Default test" duration-ms="63" started-at="2016-03-20T16:35:10Z" finished-at="2016-03-20T16:35:10Z">
       <class name="test.GraphTest">
-        <test-method status="PASS" signature="IsGraphHierarchyCorrectForInsertionOrder()[pri:0, instance:test.GraphTest@1c5d9084]" name="IsGraphHierarchyCorrectForInsertionOrder" duration-ms="37" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
+        <test-method status="PASS" signature="DisplayGraphDependancies(java.lang.String)[pri:0, instance:test.GraphTest@9d7fbfb]" name="DisplayGraphDependancies" duration-ms="30" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[./src/testData/sampleGraph]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- IsGraphHierarchyCorrectForInsertionOrder -->
-        <test-method status="PASS" signature="IsGraphHierarchyFalseForNonInsertionOrgerGraph()[pri:0, instance:test.GraphTest@1c5d9084]" name="IsGraphHierarchyFalseForNonInsertionOrgerGraph" duration-ms="2" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IsGraphHierarchyFalseForNonInsertionOrgerGraph -->
-        <test-method status="PASS" signature="DisplayGraphDependanciesIndentedPattern()[pri:0, instance:test.GraphTest@1c5d9084]" name="DisplayGraphDependanciesIndentedPattern" duration-ms="3" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
+        </test-method> <!-- DisplayGraphDependancies -->
+        <test-method status="PASS" signature="DisplayGraphDependanciesIndentedPattern()[pri:0, instance:test.GraphTest@9d7fbfb]" name="DisplayGraphDependanciesIndentedPattern" duration-ms="4" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DisplayGraphDependanciesIndentedPattern -->
-        <test-method status="PASS" signature="ValidatePossiblePaths(java.lang.String, java.lang.String, int)[pri:0, instance:test.GraphTest@1c5d9084]" name="ValidatePossiblePaths" duration-ms="2" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
+        <test-method status="PASS" signature="DisplayGraphDependanciesInvalid(java.lang.String)[pri:0, instance:test.GraphTest@9d7fbfb]" name="DisplayGraphDependanciesInvalid" duration-ms="1" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[./src/testData/invalidGraph]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DisplayGraphDependanciesInvalid -->
+        <test-method status="PASS" signature="IsGraphHierarchyCorrectForInsertionOrder()[pri:0, instance:test.GraphTest@9d7fbfb]" name="IsGraphHierarchyCorrectForInsertionOrder" duration-ms="4" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IsGraphHierarchyCorrectForInsertionOrder -->
+        <test-method status="PASS" signature="IsGraphHierarchyFalseForNonInsertionOrderGraph()[pri:0, instance:test.GraphTest@9d7fbfb]" name="IsGraphHierarchyFalseForNonInsertionOrderGraph" duration-ms="3" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IsGraphHierarchyFalseForNonInsertionOrderGraph -->
+        <test-method status="PASS" signature="ValidatePossiblePaths(java.lang.String, java.lang.String, int)[pri:0, instance:test.GraphTest@9d7fbfb]" name="ValidatePossiblePaths" duration-ms="2" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
           <params>
             <param index="0">
               <value>
@@ -40,7 +62,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidatePossiblePaths -->
-        <test-method status="PASS" signature="ValidatePossiblePathsForNonExistNode(java.lang.String, java.lang.String, int)[pri:0, instance:test.GraphTest@1c5d9084]" name="ValidatePossiblePathsForNonExistNode" duration-ms="2" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
+        <test-method status="PASS" signature="ValidatePossiblePathsForNonExistNode(java.lang.String, java.lang.String, int)[pri:0, instance:test.GraphTest@9d7fbfb]" name="ValidatePossiblePathsForNonExistNode" duration-ms="3" started-at="2016-03-20T11:35:10Z" finished-at="2016-03-20T11:35:10Z">
           <params>
             <param index="0">
               <value>
@@ -61,29 +83,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ValidatePossiblePathsForNonExistNode -->
-        <test-method status="PASS" signature="DisplayGraphDependancies(java.lang.String)[pri:0, instance:test.GraphTest@1c5d9084]" name="DisplayGraphDependancies" duration-ms="2" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[./src/testData/graph2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DisplayGraphDependancies -->
-        <test-method status="PASS" signature="DisplayGraphDependanciesInvalid(java.lang.String)[pri:0, instance:test.GraphTest@1c5d9084]" name="DisplayGraphDependanciesInvalid" duration-ms="1" started-at="2016-03-20T11:13:24Z" finished-at="2016-03-20T11:13:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[./src/testData/invalidGraph]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DisplayGraphDependanciesInvalid -->
       </class> <!-- test.GraphTest -->
-    </test> <!-- GraphTest -->
-  </suite> <!-- TestAutomation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

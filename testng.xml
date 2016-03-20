@@ -6,8 +6,8 @@
     <classes>
       <class name="test.GraphTest">
       <methods>
-        <parameter name="file"  value="./src/testData/graph3"/>
-         <parameter name="file2"  value="./src/testData/graph2"/>
+        <parameter name="file"  value="./src/testData/validInputGraph"/>
+         <parameter name="file2"  value="./src/testData/sampleGraph"/>
          <parameter name="file3"  value="./src/testData/invalidGraph"/>
         <parameter name="source"  value="A"/>
          <parameter name="destination"  value="J"/>
