@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="TestAutomation" verbose="1" >
+ 
+  <test name="GraphTest">
+    <classes>
+      <class name="test.GraphTest">
+      <methods>
+        <parameter name="file"  value="/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph3"/>
+         <parameter name="file2"  value="/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph2"/>
+        <parameter name="source"  value="A"/>
+         <parameter name="destination"  value="Z"/>
+         <parameter name="expectedCount"  value="0"/>
+        <include name="IsGraphHierarchyCorrectForInsertionOrder" />
+        <include name="IsGraphHierarchyFalseForNonInsertionOrgerGraph" />
+        <include name="DisplayGraphDependanciesIndentedPattern" />
+        <include name="ValidatePossiblePaths" />
+      </methods>
+        </class>
+    </classes>
+  </test>
+</suite>

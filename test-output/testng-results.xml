@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestAutomation" duration-ms="26" started-at="2016-03-20T08:42:40Z" finished-at="2016-03-20T08:42:40Z">
+    <groups>
+    </groups>
+    <test name="GraphTest" duration-ms="26" started-at="2016-03-20T08:42:40Z" finished-at="2016-03-20T08:42:40Z">
+      <class name="test.GraphTest">
+        <test-method status="PASS" signature="GenerateGraph()[pri:0, instance:test.GraphTest@6a5f6303]" name="GenerateGraph" is-config="true" duration-ms="19" started-at="2016-03-20T03:42:40Z" finished-at="2016-03-20T03:42:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GenerateGraph -->
+        <test-method status="PASS" signature="IsGraphHierarchyCorrectForInsertionOrder(java.lang.String)[pri:0, instance:test.GraphTest@6a5f6303]" name="IsGraphHierarchyCorrectForInsertionOrder" duration-ms="8" started-at="2016-03-20T03:42:40Z" finished-at="2016-03-20T03:42:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IsGraphHierarchyCorrectForInsertionOrder -->
+        <test-method status="PASS" signature="IsGraphHierarchyFalseForNonInsertionOrgerGraph(java.lang.String)[pri:0, instance:test.GraphTest@6a5f6303]" name="IsGraphHierarchyFalseForNonInsertionOrgerGraph" duration-ms="2" started-at="2016-03-20T03:42:40Z" finished-at="2016-03-20T03:42:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- IsGraphHierarchyFalseForNonInsertionOrgerGraph -->
+        <test-method status="PASS" signature="DisplayGraphDependanciesIndentedPattern(java.lang.String)[pri:0, instance:test.GraphTest@6a5f6303]" name="DisplayGraphDependanciesIndentedPattern" duration-ms="4" started-at="2016-03-20T03:42:40Z" finished-at="2016-03-20T03:42:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DisplayGraphDependanciesIndentedPattern -->
+        <test-method status="PASS" signature="ValidatePossiblePaths(java.lang.String, java.lang.String, int, java.lang.String)[pri:0, instance:test.GraphTest@6a5f6303]" name="ValidatePossiblePaths" duration-ms="1" started-at="2016-03-20T03:42:40Z" finished-at="2016-03-20T03:42:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[A]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Z]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[0]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[/Users/sghali/Documents/workspace/TestNGDemo/src/testData/graph2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidatePossiblePaths -->
+      </class> <!-- test.GraphTest -->
+    </test> <!-- GraphTest -->
+  </suite> <!-- TestAutomation -->
+</testng-results>
